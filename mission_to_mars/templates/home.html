@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap CSS                                                                                       Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/home.css">
+    <!-- {{ url_for('static',filename='styles/home.css') }} -->
+    <title>Mars</title>
+</head>
+
+<body class="body">
+    <div class="containter">
+        <!-- navbar                                                                                          navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <a class="navbar-brand my_brand" href="./">Mission to Mars</a>
+            <!-- button toggler                                                                    toggler button-->
+            <button class="navbar-toggler custom_toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- navbar Menue                                                                        navbar Menue -->
+            <div class="collapse navbar-collapse my_menu" id="navbarMenu">
+                <ul class="d-flex align-items-end navbar-nav ml-auto">
+                    <!-- <li class="nav-item dropdown  ">
+                        <a class="nav-link dropdown-toggle" href="pages/temp.html" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Plots
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item my_dropdown " href="">Max Temperature</a>
+                            <a class="dropdown-item my_dropdown" href="">Humidity</a>
+                            <a class="dropdown-item my_dropdown" href="">Cloudliness</a>
+                            <a class="dropdown-item my_dropdown" href="">Wind Speed</a>
+                        </div> -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scrape" > Scrape New Data
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="pages/data.html">Data</a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+        <!-- 1st Row  just a header with button                                                                               1st  Row-->
+        <div class="row justify-content-center">
+            <!-- 1.1column                                                                   1.1column -->
+            <div class="col-12 r1_c1 ">
+                <section>
+                    <!-- 1.1 column Header                                       1.1 column Header-->
+                    <h1 class="p1h1">Misson To Mars</h1>
+                    <hr>
+                    <form class='my_form'action='/scrape'>                    
+                        <button class='button my_button'>
+                        scrape new data
+                        </button >
+                    </form>
+                </section>
+            </div>
+        </div>
+        <!-- 2nd Row  news article                                                                               2nd  Row-->
+        <div class="row justify-content-center">
+            <!-- 2.1column                                                                   1.1column -->
+            <div class="col-12 r1_c1">
+                <section>
+                    <!-- 1.1 column Header                                       1.1 column Header-->
+                    <h1 class="p1h1">Latest Mars News</h1>
+                    <hr>
+                    <h2 class="p1h2">{{ dict.news_title }}</h1>
+                    <p class="p1p1">{{ dict.news_p }} </p>
+                </section>
+            </div>
+        </div>
+        <!-- 3rd Row                                                                                3rd  Row-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12 r1_c1">
+                <section>
+                    <!-- 3.1 column Header                                       1.1 column Header-->
+                    <h1 class="p1h2">Featured Image</h1>
+                    <hr>
+                    <a href=" ">
+                        <figure class="fig1_p1">
+                            <img src= {{ dict.feature_image }} class="rounded img_p1 " alt="mars featured">
+                            <figcaption>
+
+                            </figcaption>
+                        </figure>
+                    <a>
+                </section>
+            </div>
+            <!-- 1.2column                                                         1.2column-->
+            <div class="col-lg-4 col-md-12 r1_c1 ">
+                <section>
+                    <h1 class="p1h2">Mars Facts
+                    </h1>
+                    <hr>
+                    <!-- pictures for 1.2 columns                                            -->
+                    <div>
+                        {{dict.html_table|safe}}
+
+                    </div>
+
+                </section>
+            </div>
+        </div>
+        <!-- 4th Row                                                                                1st  Row-->
+        <div class="row justify-content-center">
+            <!-- 1.1column                                                                   1.1column -->
+            <div class="col-12 r1_c1">
+                <section>
+                    <!-- 4.1 column Header                                       1.1 column Header-->
+                    <h1 class="p1h1">Mars Hemispheres</h1>
+                    <hr>
+                    <a href={{dict.hem_list[0].img_url}}>
+                        <figure class="fig_l">
+                            <img src={{dict.hem_list[0].img_url}} class="rounded img_p2 " alt="mars hem1">
+                            <figcaption>
+                                {{dict.hem_list[0].title}}
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href={{dict.hem_list[1].img_url}}>
+                        <figure class="fig_r">
+                            <img src={{dict.hem_list[1].img_url}} class="rounded img_p2 " alt="mars hem1">
+                            <figcaption>
+                                {{dict.hem_list[1].title}}
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href={{dict.hem_list[2].img_url}}>
+                        <figure class="fig_l">
+                            <img src={{dict.hem_list[2].img_url}} class="rounded img_p2 " alt="mars hem1">
+                            <figcaption>
+                                {{dict.hem_list[2].title}}
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href={{dict.hem_list[3].img_url}}>
+                        <figure class="fig_r">
+                            <img src={{dict.hem_list[3].img_url}} class="rounded img_p2 " alt="mars hem1">
+                            <figcaption>
+                                {{dict.hem_list[3].title}}
+                            </figcaption>
+                        </figure>
+                    </a>
+
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

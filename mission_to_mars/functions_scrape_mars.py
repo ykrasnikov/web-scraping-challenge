@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import re
+from pymongo.mongo_client import MongoClient
 from splinter import Browser
 # as a playground - we will try selenium as well
 from selenium import webdriver 
@@ -88,7 +89,7 @@ def scrape():
     url='https://space-facts.com/mars/'
     tables = pd.read_html(url)
     # create HTML table 
-    html_table = tables[0].to_html(header=False,index=False, justify='left',classes='my_table', border=0)
+    html_table = tables[0].to_html(header=False,index=False, justify='left',classes=['my_table','stripped'], border=0)
     scrape_dict['html_table']=html_table
 
     #################################################################
@@ -141,7 +142,7 @@ def mars_insert(page):
         insertion='new data recorded'
     else:
         insertion='skip, no new record'
-
+    client.close()
     return insertion
 
 #####################################################################
@@ -161,7 +162,8 @@ def mars_search():
         mars_insert(dict)
         
     record = collection.find().sort('_id',-1).limit(1)[0]
-    return record['news_title'] # change to just record 
+    client.close()
+    return record  # change to just record 
 
 # print(mars_search())
 # print('serch is done')
