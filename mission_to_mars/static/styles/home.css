@@ -70,7 +70,7 @@
 }
 .fig1_p1 {
     float:center;
-    width: 90%;
+    width: 95%;
     text-align:center;
     font-size: large;
     color: teal;
@@ -113,6 +113,15 @@
     margin-left: 10px;
     margin-bottom: 10px;
     margin-right: 60px;
+}
+
+.box1{
+    width: 55%;
+    float: left;
+}
+.box2{
+    width: 40%;
+    float: right;
 }
 /* RESIZE FOR SMALLER SCREEN                RESIZE FOR SMALLER SCREEN */
 @media (max-width: 991px) {
@@ -230,6 +239,15 @@
             border-width: 2px;
             border-bottom-style:inset;
         }
+        .box1{
+            width: 95%;
+            float: left;
+        }
+        .box2{
+            width: 95%;
+            float: left;
+        }
+    
     
 }
 
@@ -261,7 +279,8 @@
 }
 
 .my_table{
-    width: 90%;
+    width: 95%;
+    text-align: right;
 
 }
 .my_form{
@@ -282,4 +301,4 @@
 .img_p2{
     width: 100%;
 }
- 
+

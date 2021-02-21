@@ -39,7 +39,7 @@
                         </div> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/scrape" > Scrape New Data
+                        <a class="nav-link" href="/scrape"> Scrape New Data
                         </a>
                     </li>
                     <!-- <li class="nav-item">
@@ -56,10 +56,10 @@
                     <!-- 1.1 column Header                                       1.1 column Header-->
                     <h1 class="p1h1">Misson To Mars</h1>
                     <hr>
-                    <form class='my_form'action='/scrape'>                    
+                    <form class='my_form' action='/scrape'>
                         <button class='button my_button'>
-                        scrape new data
-                        </button >
+                            scrape new data
+                        </button>
                     </form>
                 </section>
             </div>
@@ -73,42 +73,40 @@
                     <h1 class="p1h1">Latest Mars News</h1>
                     <hr>
                     <h2 class="p1h2">{{ dict.news_title }}</h1>
-                    <p class="p1p1">{{ dict.news_p }} </p>
+                        <p class="p1p1">{{ dict.news_p }} </p>
                 </section>
             </div>
         </div>
-        <!-- 3rd Row                                                                                3rd  Row-->
+        <!-- 3rd Row  news article                                                                               2nd  Row-->
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12 r1_c1">
+            <div class="col-12 r1_c1">
                 <section>
-                    <!-- 3.1 column Header                                       1.1 column Header-->
-                    <h1 class="p1h2">Featured Image</h1>
-                    <hr>
-                    <a href=" ">
-                        <figure class="fig1_p1">
-                            <img src= {{ dict.feature_image }} class="rounded img_p1 " alt="mars featured">
-                            <figcaption>
+                    <div class="box1">
+                        <h1 class="p1h2">Featured Image</h1>
+                        <hr>
+                        <a href=" ">
+                            <figure class="fig1_p1">
+                                <img src={{ dict.feature_image }} class="rounded img_p1 " alt="mars featured">
+                                <figcaption>
 
-                            </figcaption>
-                        </figure>
-                    <a>
-                </section>
-            </div>
-            <!-- 1.2column                                                         1.2column-->
-            <div class="col-lg-4 col-md-12 r1_c1 ">
-                <section>
-                    <h1 class="p1h2">Mars Facts
-                    </h1>
-                    <hr>
-                    <!-- pictures for 1.2 columns                                            -->
-                    <div>
-                        {{dict.html_table|safe}}
-
+                                </figcaption>
+                            </figure>
+                        <a>
                     </div>
+                    <div class="box2">
+                        <h1 class="p1h2">Mars Facts
+                        </h1>
+                        <hr>
+                        <!-- pictures for 1.2 columns                                            -->
+                        <div>
+                            {{dict.html_table|safe}}
 
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
+        
         <!-- 4th Row                                                                                1st  Row-->
         <div class="row justify-content-center">
             <!-- 1.1column                                                                   1.1column -->
